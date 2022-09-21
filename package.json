@@ -2,7 +2,7 @@
   "name": "sdc-product-overview",
   "version": "1.0.0",
   "description": "System Design Capstone: Product Overview",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "test": "test"
   },
