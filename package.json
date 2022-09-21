@@ -1,0 +1,23 @@
+{
+  "name": "sdc-product-overview",
+  "version": "1.0.0",
+  "description": "System Design Capstone: Product Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpp2204-sdc-pasta/sdc-product-overview.git"
+  },
+  "keywords": [
+    "sdc",
+    "fec"
+  ],
+  "author": "Abdiel Sanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpp2204-sdc-pasta/sdc-product-overview/issues"
+  },
+  "homepage": "https://github.com/rpp2204-sdc-pasta/sdc-product-overview#readme"
+}
