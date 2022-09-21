@@ -19,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/rpp2204-sdc-pasta/sdc-product-overview/issues"
   },
-  "homepage": "https://github.com/rpp2204-sdc-pasta/sdc-product-overview#readme"
+  "homepage": "https://github.com/rpp2204-sdc-pasta/sdc-product-overview#readme",
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
 }
