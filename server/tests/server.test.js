@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./app');
+const app = require('../app');
 
 describe('Initial test', () => {
   test('It should return a 200 code for root path', () => {
