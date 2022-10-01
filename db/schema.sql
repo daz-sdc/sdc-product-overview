@@ -19,8 +19,8 @@ CREATE TABLE products (
   description VARCHAR NULL DEFAULT NULL,
   category VARCHAR NULL DEFAULT NULL,
   default_price INTEGER NULL DEFAULT NULL,
-  created_at TIMESTAMP NULL DEFAULT NULL,
-  updated_at TIMESTAMP NULL DEFAULT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP(2),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP(2),
   PRIMARY KEY (product_id)
 );
 
@@ -71,9 +71,9 @@ CREATE TABLE styles (
 --
 -- ---
 
-DROP TABLE IF EXISTS photos;
+DROP TABLE IF EXISTS styles_photos;
 
-CREATE TABLE photos (
+CREATE TABLE styles_photos (
   photo_id SERIAL UNIQUE,
   style_id INTEGER REFERENCES styles (style_id) NULL DEFAULT NULL,
   thumbnail_url VARCHAR NULL DEFAULT NULL,
@@ -86,9 +86,9 @@ CREATE TABLE photos (
 --
 -- ---
 
-DROP TABLE IF EXISTS skus;
+DROP TABLE IF EXISTS styles_skus;
 
-CREATE TABLE skus (
+CREATE TABLE styles_skus (
   sku_id SERIAL UNIQUE,
   style_id INTEGER REFERENCES styles (style_id) NULL DEFAULT NULL,
   quantity INTEGER NULL DEFAULT NULL,
