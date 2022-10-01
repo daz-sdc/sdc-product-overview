@@ -18,44 +18,34 @@ CREATE TABLE products (
 );
 
 -- ---
--- Table 'Features'
---
--- ---
-
-DROP TABLE IF EXISTS features;
-
-CREATE TABLE features (
-  feature_id SERIAL UNIQUE,
-  feature VARCHAR NULL DEFAULT NULL,
-  "value" VARCHAR NULL DEFAULT NULL,
-  PRIMARY KEY (feature_id)
-);
-
--- ---
--- Table 'Product Features'
+-- Table 'product_features'
 --
 -- ---
 
 DROP TABLE IF EXISTS product_features;
 
 CREATE TABLE product_features (
-  product_id INTEGER REFERENCES Products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  feature_id INTEGER REFERENCES Features (feature_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  PRIMARY KEY (product_id, feature_id)
+  feature_id SERIAL UNIQUE,
+  product_id INTEGER REFERENCES products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  feature VARCHAR NULL DEFAULT NULL,
+  "value" VARCHAR NULL DEFAULT NULL,
+  PRIMARY KEY (feature_id)
 );
 
 -- ---
--- Table 'Styles'
+-- Table 'product_styles'
 --
 -- ---
 
-DROP TABLE IF EXISTS styles;
+DROP TABLE IF EXISTS product_styles;
 
-CREATE TABLE styles (
+CREATE TABLE product_styles (
   style_id SERIAL UNIQUE,
-  name VARCHAR NULL DEFAULT NULL,
+  product_id INTEGER REFERENCES products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  "name" VARCHAR NULL DEFAULT NULL,
+  sale_price VARCHAR NULL DEFAULT NULL,
   original_price INTEGER NULL DEFAULT NULL,
-  "default?" VARCHAR NULL DEFAULT NULL,
+  "default?" INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (style_id)
 );
 
@@ -68,9 +58,9 @@ DROP TABLE IF EXISTS styles_photos;
 
 CREATE TABLE styles_photos (
   photo_id SERIAL UNIQUE,
-  style_id INTEGER REFERENCES styles (style_id) NULL DEFAULT NULL,
-  thumbnail_url VARCHAR NULL DEFAULT NULL,
+  style_id INTEGER REFERENCES product_styles (style_id) NULL DEFAULT NULL,
   "url" VARCHAR NULL DEFAULT NULL,
+  thumbnail_url VARCHAR NULL DEFAULT NULL,
   PRIMARY KEY (photo_id)
 );
 
@@ -83,23 +73,10 @@ DROP TABLE IF EXISTS styles_skus;
 
 CREATE TABLE styles_skus (
   sku_id SERIAL UNIQUE,
-  style_id INTEGER REFERENCES styles (style_id) NULL DEFAULT NULL,
+  style_id INTEGER REFERENCES product_styles (style_id) NULL DEFAULT NULL,
+  size VARCHAR NULL DEFAULT NULL,
   quantity INTEGER NULL DEFAULT NULL,
-  size INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (sku_id)
-);
-
--- ---
--- Table 'Product Styles'
---
--- ---
-
-DROP TABLE IF EXISTS product_styles;
-
-CREATE TABLE product_styles (
-  product_id INTEGER REFERENCES products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  style_id INTEGER REFERENCES styles (style_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  PRIMARY KEY (product_id)
 );
 
 -- ---
@@ -110,7 +87,8 @@ CREATE TABLE product_styles (
 DROP TABLE IF EXISTS related_products;
 
 CREATE TABLE related_products (
+  relation_id SERIAL UNIQUE,
   product_id INTEGER REFERENCES products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  related_id INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (product_id)
+  related_product_id INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (relation_id)
 );
