@@ -1,3 +1,5 @@
 module.exports = (req, res) => {
-  res.status(200).send('Products!');
+  const count = req.query.count || 5;
+  const page = req.query.page || 1;
+  res.status(200).send(`Products! Page: ${page}, Count: ${count}`);
 };
