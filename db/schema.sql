@@ -6,15 +6,15 @@
 DROP TABLE IF EXISTS products;
 
 CREATE TABLE products (
-  product_id SERIAL UNIQUE,
+  id SERIAL UNIQUE,
   name VARCHAR NULL DEFAULT NULL,
   slogan VARCHAR NULL DEFAULT NULL,
   description VARCHAR NULL DEFAULT NULL,
   category VARCHAR NULL DEFAULT NULL,
-  default_price INTEGER NULL DEFAULT NULL,
+  default_price NUMERIC(10, 2) NULL DEFAULT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP(2),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP(2),
-  PRIMARY KEY (product_id)
+  PRIMARY KEY (id)
 );
 
 -- ---
@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS product_features;
 
 CREATE TABLE product_features (
   feature_id SERIAL UNIQUE,
-  product_id INTEGER REFERENCES products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  product_id INTEGER REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
   feature VARCHAR NULL DEFAULT NULL,
   "value" VARCHAR NULL DEFAULT NULL,
   PRIMARY KEY (feature_id)
@@ -41,7 +41,7 @@ DROP TABLE IF EXISTS product_styles;
 
 CREATE TABLE product_styles (
   style_id SERIAL UNIQUE,
-  product_id INTEGER REFERENCES products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  product_id INTEGER REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
   "name" VARCHAR NULL DEFAULT NULL,
   sale_price VARCHAR NULL DEFAULT NULL,
   original_price INTEGER NULL DEFAULT NULL,
@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS related_products;
 
 CREATE TABLE related_products (
   relation_id SERIAL UNIQUE,
-  product_id INTEGER REFERENCES products (product_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  product_id INTEGER REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
   related_product_id INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (relation_id)
 );
