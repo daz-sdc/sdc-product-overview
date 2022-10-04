@@ -1,9 +1,9 @@
 const db = require('../db/index');
 
-module.exports = (page, count) => {
+module.exports = (count, page) => {
   const text = `
   SELECT * FROM products
-  ORDER BY product_id
+  ORDER BY id ASC
   LIMIT ${count}
   OFFSET (${page} - 1) * 5
   `;

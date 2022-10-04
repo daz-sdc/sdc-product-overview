@@ -5,7 +5,7 @@ const { DATA_PATH } = process.env;
 
 const loadProducts = () => {
   const path = `${DATA_PATH}product.csv`;
-  const text = `COPY products(product_id, name, slogan, description, category, default_price) FROM '${path}' DELIMITER ',' CSV HEADER`;
+  const text = `COPY products(id, name, slogan, description, category, default_price) FROM '${path}' DELIMITER ',' CSV HEADER`;
 
   db.query(text)
     .then((res) => console.log(res))
@@ -56,3 +56,10 @@ const loadRelated = () => {
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 };
+
+// loadProducts();
+// loadFeatures();
+// loadStyles();
+// loadPhotos();
+// loadSkus();
+// loadRelated();
