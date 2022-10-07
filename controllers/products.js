@@ -9,6 +9,6 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const data = await models.products(count, page);
+  const data = await models.getProducts(count, page);
   res.status(200).send(data.rows);
 };
