@@ -1,6 +1,7 @@
 const models = require('../models/index');
 
 module.exports = async (req, res) => {
+  console.log(req.query);
   const count = Number(req.query.count) || 5;
   const page = Number(req.query.page) || 1;
 
