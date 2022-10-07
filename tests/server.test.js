@@ -1,17 +1,9 @@
 const request = require('supertest');
 const app = require('../app');
 
-beforeAll(done => {
-  done();
-});
-
-afterAll(done => {
-  done();
-});
-
 describe('/', () => {
   test('It should return a 200 code for root path', (done) => {
-    request(app)›
+    request(app)
       .get('/')
       .expect(200, done)
   });
