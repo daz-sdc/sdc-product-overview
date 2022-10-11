@@ -43,8 +43,8 @@ CREATE TABLE product_styles (
   style_id SERIAL UNIQUE,
   product_id INTEGER REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
   "name" VARCHAR NULL DEFAULT NULL,
-  sale_price VARCHAR NULL DEFAULT NULL,
-  original_price INTEGER NULL DEFAULT NULL,
+  sale_price NUMERIC(10, 2) NULL DEFAULT NULL,
+  original_price NUMERIC(10, 2) NULL DEFAULT NULL,
   "default?" INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (style_id)
 );
