@@ -6,3 +6,4 @@
 *.pem
 loaderio-646d68cae4624bdd9c8b094899f4a895.txt
 *Dockerfile
+.dockerignore
