@@ -1,6 +1,6 @@
 const db = require('../db/index');
 
-module.exports = (count, page) => {
+module.exports = function getDBProducts(count, page) {
   const text = `
   SELECT * FROM products
   ORDER BY id ASC
