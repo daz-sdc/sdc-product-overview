@@ -1,4 +1,4 @@
-# System Design Capstone
+# System Design Capstone  
 
 ## Back-End for _Chinese Forum_ Ecommerce Website
 This is a comprehensive back-end solution for the Chinese Forum ecommerce website. Initially designed to handle 300 RPS, it was optimized and scaled to handle over 5000 RPS using docker containers and 3 EC2 micro instances.
