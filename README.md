@@ -12,7 +12,7 @@ The app was rigorously tested using **Loader.io** and its performance was examin
 ## Solving the Problem of Limited Scalability
 The success of an ecommerce website relies heavily on its ability to handle high levels of traffic and transactions. 
 
-Specific notes regarding performance and all data may be found [here]([url](https://docs.google.com/document/d/16CK5OV4I-PJkaD5cQt9DEvmi0NmJ6sNy1jjKyXagXwk/edit#heading=h.619z08s4h6on)).
+<a href="https://docs.google.com/document/d/16CK5OV4I-PJkaD5cQt9DEvmi0NmJ6sNy1jjKyXagXwk/edit#heading=h.619z08s4h6on">Specific notes regarding performance, SQL queries, and all data may be found here.</a>
 
 ## Getting Started
 Simply pull the docker image from Docker HUB and deploy it to your desired environment. 
